@@ -3,6 +3,8 @@ module scAM
 # Write your package code here.
 include("extra_file.jl")
 
-export my_func
+using ForwardDiff
+
+export my_func, x_derivative
 
 end

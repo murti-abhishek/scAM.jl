@@ -3,8 +3,12 @@ uuid = "cd1de449-d151-45c5-b30c-d1a1e18390f1"
 authors = ["Abhishek Murti"]
 version = "0.1.0"
 
+[deps]
+ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+
 [compat]
 julia = "1"
+ForwardDiff = "0.10"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
