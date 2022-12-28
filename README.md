@@ -4,3 +4,5 @@
 [![Build Status](https://travis-ci.com/murti-abhishek/scAM.jl.svg?branch=main)](https://travis-ci.com/murti-abhishek/scAM.jl)
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/murti-abhishek/scAM.jl?svg=true)](https://ci.appveyor.com/project/murti-abhishek/scAM-jl)
 [![Coverage](https://codecov.io/gh/murti-abhishek/scAM.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/murti-abhishek/scAM.jl)
+
+This is a Julia package for analysing single cell and single nuclei RNA sequencing data
