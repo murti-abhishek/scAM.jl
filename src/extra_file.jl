@@ -1,15 +1,5 @@
-function my_func(x,y) 
-    return(2 * x + y)
-end
 
-function x_derivative(x,y)
-
-    derivative = ForwardDiff.derivative(x -> my_func(x,y),x)
-
-    return(derivative)
-end
-
-function normalize_matrix(raw_counts::Array{Float64,2}, scale::Float64)
+function normalize_matrix(raw_counts, scale)
 
 	# get the total UMI count for each cell (essentially sum by column)
 	total_cell_counts = sum(raw_counts, dims = 1)

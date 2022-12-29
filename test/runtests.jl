@@ -1,15 +1,12 @@
 using scAM
 using Test
-#using Revise
-
-# scAM.my_func(2,1)
 
 @testset "scAM.jl" begin
     # Write your tests here.
-    @test my_func(2,1) == 5
-    @test my_func(2,2) == 6
 
-    @test x_derivative(1,2) == 2
-    @test x_derivative(2,2) == 2
+    # Read the matrix
+    test_matrix = [[1,2,3] [4,5,6] [7,8,9]]
+    result = normalize_matrix(test_matrix, 10)
+    @test typeof(result) == Matrix{Float64}
 
 end

@@ -23,6 +23,6 @@ using HypothesisTests
 include("extra_file.jl")
 
 # amke sure to only export user functions [do not export iternal functions]
-export my_func, x_derivative
+export normalize_matrix
 
 end
