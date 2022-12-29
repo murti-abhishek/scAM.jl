@@ -11,10 +11,12 @@ using DelimitedFiles
     # Read the files and matrices
     files = readdir(data_folder)
 
+    #=
     # tests to make scAMobj from a single dge file
     file_path = string(data_folder, files[1])
     test_obj = create_scAMobj(file_path)
     @test typeof(test_obj) == scAMobj
+    =#
 
     # tests to make merge scAMobjs from multiple dge files
     # initialize a vector to store the scAMobjs
@@ -42,6 +44,7 @@ using DelimitedFiles
     percentage_set_feature(scAMobj_merged, "MT-")
     @test iszero(scAMobj_merged.pct_feature) == false
 
+    #=
     # Subset the object and test validity
     scAMobj_merged = modify_scAMobj(scAMobj_merged,500, 10000, 800, 4000, 40)
     @test typeof(scAMobj_merged) == scAMobj
@@ -71,5 +74,6 @@ using DelimitedFiles
     # Run DGE for cluster 3 and check if the data frame has at least one row
     dge_res = FindDGE(scAMobj_merged, "3")
     @test isempty(dge_res) == false
+    =#
 
 end
