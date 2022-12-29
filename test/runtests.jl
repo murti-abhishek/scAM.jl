@@ -16,14 +16,6 @@ using DelimitedFiles
     test_obj = create_scAMobj(file_path)
     @test typeof(test_obj) == scAMobj
 
-    file_path = string(data_folder, files[2])
-    test_obj = create_scAMobj(file_path)
-    @test typeof(test_obj) == scAMobj
-
-    file_path = string(data_folder, files[3])
-    test_obj = create_scAMobj(file_path)
-    @test typeof(test_obj) == scAMobj
-
     # tests to make merge scAMobjs from multiple dge files
     # initialize a vector to store the scAMobjs
     scAMobjs = Vector{scAMobj}()
