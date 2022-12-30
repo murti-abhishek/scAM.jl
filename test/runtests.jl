@@ -15,7 +15,7 @@ using Test
     file_path = string(data_folder, files[1])
     test_obj = create_scAMobj(file_path)
     @test typeof(test_obj) == scAMobj
-    #=
+
     # tests to make merge scAMobjs from multiple dge files
     # initialize a vector to store the scAMobjs
     scAMobjs = Vector{scAMobj}()
@@ -37,7 +37,7 @@ using Test
     # merge them and test validity
     scAMobj_merged = merge_scAMobjs(scAMobjs)
     @test typeof(scAMobj_merged) == scAMobj
-
+    #=
     # Add percent mito and check if it has atleast one non zero element [init is all zeros]
     scAMobj_merged = percentage_set_feature(scAMobj_merged, "MT-")
     @test iszero(scAMobj_merged.pct_feature) == false
