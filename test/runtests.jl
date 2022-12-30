@@ -1,7 +1,7 @@
 using scAM
 using Test
 
-using DelimitedFiles
+# using DelimitedFiles
 
 @testset "scAM.jl" begin
     # Write your tests here.
@@ -15,7 +15,7 @@ using DelimitedFiles
     file_path = string(data_folder, files[1])
     test_obj = create_scAMobj(file_path)
     @test typeof(test_obj) == scAMobj
-
+    #=
     # tests to make merge scAMobjs from multiple dge files
     # initialize a vector to store the scAMobjs
     scAMobjs = Vector{scAMobj}()
@@ -71,5 +71,5 @@ using DelimitedFiles
     # Run DGE for cluster 3 and check if the data frame has at least one row
     dge_res = FindDGE(scAMobj_merged, "3")
     @test isempty(dge_res) == false
-
+    =#
 end

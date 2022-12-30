@@ -3,7 +3,7 @@ module scAM
     # first list all the dependencies essentially same as below
     # include("Include.jl")
 
-    using ForwardDiff # remove this later
+    #using ForwardDiff # remove this later
     using MultivariateStats
     using Plots
     using DelimitedFiles
