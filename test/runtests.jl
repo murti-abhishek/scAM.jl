@@ -33,8 +33,7 @@ using Test
         push!(scAMobjs, obj)
 
     end
-    
-    #=
+
     # merge them and test validity
     scAMobj_merged = merge_scAMobjs(scAMobjs)
     @test typeof(scAMobj_merged) == scAMobj
@@ -72,5 +71,4 @@ using Test
     # Run DGE for cluster 3 and check if the data frame has at least one row
     dge_res = FindDGE(scAMobj_merged, "3")
     @test isempty(dge_res) == false
-    =#
 end
