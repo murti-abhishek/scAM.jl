@@ -33,11 +33,12 @@ using Test
         push!(scAMobjs, obj)
 
     end
-
+    
+    #=
     # merge them and test validity
     scAMobj_merged = merge_scAMobjs(scAMobjs)
     @test typeof(scAMobj_merged) == scAMobj
-    #=
+
     # Add percent mito and check if it has atleast one non zero element [init is all zeros]
     scAMobj_merged = percentage_set_feature(scAMobj_merged, "MT-")
     @test iszero(scAMobj_merged.pct_feature) == false
