@@ -164,3 +164,5 @@ function make_feature_plot(UMAP_reduction, gene_of_interest, genes, gene_exp_mtx
     return(p)
 
 end
+
+# function to plot proportions

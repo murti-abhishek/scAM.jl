@@ -63,6 +63,16 @@ using Test
     @test iszero(scAMobj_merged.clusters) == false
 
     # How to test plots??
+    # Plot UMAP [if no metadata is provided, it will plot by clusters]
+    p = plot_UMAP(scAMobj_merged)
+    @test string(typeof(p)) == "VegaLite.VLSpec"
+
+    p = plot_UMAP(scAMobj_merged, scAMobj_merged.sample_id)
+    @test string(typeof(p)) == "VegaLite.VLSpec"
+
+    # Test feature plot
+    p = FeaturePlot(scAMobj_merged, "ALB")
+    @test string(typeof(p)) == "VegaLite.VLSpec"
 
     # Run DGE for all clusters and check the results dictionary has been populated
     dge_results = FindAllDGE(scAMobj_merged)
