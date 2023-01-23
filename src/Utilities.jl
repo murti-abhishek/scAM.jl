@@ -1,3 +1,5 @@
+include("Preprocessing.jl")
+
 # function to make a date frame from one sample *_dge.txt file
 function make_sample_df_from_path(file_path, sample_number)
 
@@ -49,7 +51,7 @@ function create_sample_df_dictionary(data_directory)
         sample_name = split(sample,"_dge.txt")[1]
 
         # get the sample file_path
-        sample_path = string(data_directory, sample)
+        sample_path = joinpath(data_directory, sample)
 
         # create sample_df
         sample_df = make_sample_df_from_path(sample_path, i)
@@ -69,20 +71,44 @@ function create_sample_df_dictionary(data_directory)
 
 end
 
+
 # function to merge all the data frames by the Gene column
 function merge_sample_df(sample_df_dictionary, sample_number_mapping_dictionary)
 
-    # have a find a better way to do this (hack for now) [will only work for 3 or more samples] if else
-    # merge the first two
-    merged_df = outerjoin(sample_df_dictionary[sample_number_mapping_dictionary[1]],
-                          sample_df_dictionary[sample_number_mapping_dictionary[2]], 
-                          on = :Gene, 
-                          makeunique=true)
+    # how many samples are there?
+    n_samples = length(sample_number_mapping_dictionary)
 
-    # merge the rest
-    for i in 3:length(keys(sample_number_mapping_dictionary))
+    if n_samples == 1
 
-        merged_df = outerjoin(merged_df, sample_df_dictionary[sample_number_mapping_dictionary[i]], on = :Gene, makeunique=true)
+        print("What are you trying to merge?")
+        merged_df = sample_df_dictionary[sample_number_mapping_dictionary[1]]
+
+    elseif n_samples == 2
+
+        # merge them
+        merged_df = outerjoin(sample_df_dictionary[sample_number_mapping_dictionary[1]],
+        sample_df_dictionary[sample_number_mapping_dictionary[2]], 
+        on = :Gene, 
+        makeunique=true)
+    
+    else
+
+        # if there are more than 2 samples
+        # merge the first two
+        merged_df = outerjoin(sample_df_dictionary[sample_number_mapping_dictionary[1]],
+        sample_df_dictionary[sample_number_mapping_dictionary[2]], 
+        on = :Gene, 
+        makeunique=true)
+
+        # merge the rest
+        for i in 3:n_samples
+
+            merged_df = outerjoin(merged_df, 
+            sample_df_dictionary[sample_number_mapping_dictionary[i]], 
+            on = :Gene, 
+            makeunique=true)
+
+        end
 
     end
 

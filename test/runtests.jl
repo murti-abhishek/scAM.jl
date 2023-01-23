@@ -7,12 +7,12 @@ using Test
     # Write your tests here.
 
     # println(pwd())
-    data_folder = string(pwd(),"/data/")
+    data_folder = joinpath(pwd(),"data")
     # Read the files and matrices
     files = readdir(data_folder)
 
     # tests to make scAMobj from a single dge file
-    file_path = string(data_folder, files[1])
+    file_path = joinpath(data_folder, files[1])
     test_obj = create_scAMobj(file_path)
     @test typeof(test_obj) == scAMobj
 
@@ -24,7 +24,7 @@ using Test
     for file in files
 
         # get the file_path
-        file_path = string(data_folder, file)
+        file_path = joinpath(data_folder, file)
 
         # create the corresponding object
         obj = create_scAMobj(file_path)

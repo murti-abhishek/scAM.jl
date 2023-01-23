@@ -11,7 +11,9 @@ function create_scAMobj(file_path)
     # gather all the information needed to create the scAMobj
     (cells, genes) = get_cells_and_genes(mtx)
     counts = get_raw_counts(mtx)
-    sample_id = fill(split(split(file_path,"/data/")[2],"_dge.txt")[1],length(cells))
+
+    sample_file_name = splitpath(file_path)[end]
+    sample_id = fill(split(sample_file_name, "_dge.txt")[1],length(cells))
 
     # create the object using the custructor
     obj = scAMobj(mtx, cells, genes, counts, sample_id)
