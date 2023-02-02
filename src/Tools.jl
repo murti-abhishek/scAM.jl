@@ -166,3 +166,9 @@ function make_feature_plot(UMAP_reduction, gene_of_interest, genes, gene_exp_mtx
 end
 
 # function to plot proportions
+
+# function to add scores
+
+# function to create modified counts assay
+
+# function to plot histograms
