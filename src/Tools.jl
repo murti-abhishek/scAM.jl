@@ -165,10 +165,29 @@ function make_feature_plot(UMAP_reduction, gene_of_interest, genes, gene_exp_mtx
 
 end
 
-# function to plot proportions
+function violin_plot(gene_of_interest, genes, gene_exp_mtx, group)
 
-# function to add scores
+    # get the index of the gene you want to plot
+    index_of_interest = findall(x->x==gene_of_interest, genes)
 
-# function to create modified counts assay
+    # make the data frame
+    df = DataFrame(Group = string.(group), Expression = vec((gene_exp_mtx[index_of_interest,:])))
 
-# function to plot histograms
+    df |> @vlplot(
+        mark={:area, orient="horizontal"},
+        transform=[
+            {density="Expression", groupby=["Group"],
+            as=["Expression", "density"]}
+        ],
+        y="Expression:q",
+        x= {"density:q", stack="center", impute=nothing, title=nothing,
+            axis={labels=false, values=[0], grid=false, ticks=true}},
+        column={"Group:n", header={titleOrient="bottom", labelOrient="bottom",
+                labelPadding=0}},
+        color = "Group:n",
+        width=70,
+        spacing=0,
+        config={view={stroke=nothing}}
+    )
+
+end

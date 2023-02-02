@@ -74,6 +74,17 @@ using Test
     p = FeaturePlot(scAMobj_merged, "ALB")
     @test string(typeof(p)) == "VegaLite.VLSpec"
 
+    # test plot_proportions
+    p = plot_proportions(scAMobj_merged.clusters, scAMobj_merged.sample_id)
+    @test string(typeof(p)) == "VegaLite.VLSpec"
+
+    # test violin plots
+    p = ViolinPlot(scAMobj_merged, "ALB", scAMobj_merged.clusters)
+    @test string(typeof(p)) == "VegaLite.VLSpec"
+
+    p = ViolinPlot(scAMobj_merged, "CLEC4F", scAMobj_merged.clusters)
+    @test string(typeof(p)) == "VegaLite.VLSpec"
+
     # Run DGE for all clusters and check the results dictionary has been populated
     dge_results = FindAllDGE(scAMobj_merged)
     @test isempty(dge_results) == false

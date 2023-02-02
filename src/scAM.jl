@@ -55,6 +55,9 @@ module scAM
     export plot_UMAP
     export FeaturePlot
 
+    export plot_proportions
+    export ViolinPlot
+
     export FindAllDGE
     export FindDGE
 

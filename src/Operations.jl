@@ -241,3 +241,33 @@ function FindDGE(obj::scAMobj, cluster_of_interest::String)
     # return as df
     return(test_df)
 end
+
+function plot_proportions(ident_1, ident_2)
+
+    # make the data frame
+    df = DataFrame(A = string.(ident_1), B = string.(ident_2))
+
+    # plot
+    df |>
+    @vlplot(
+        :bar,
+        y={
+            "sum(A)",
+            axis={title="Proportion"},
+            stack=:normalize
+        },
+        x="A:o",
+        color={
+            "B:n",
+            axis={title="B"}
+        },
+        width={step=17}
+)
+
+end
+
+function ViolinPlot(obj::scAMobj, gene_of_interest, group)
+
+    violin_plot(gene_of_interest, obj.genes, obj.normalized_counts, group)
+
+end
