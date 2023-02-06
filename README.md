@@ -11,7 +11,7 @@ If you're familiar with the Seurat (R) and Scanpy (Python), this package has sim
 
 | Function                 | Usage                                                                                                                      |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| create_scAMobj           | Creates the a custom object that this package relies on; Just provide the path to the folder where your dge files (gene expression matrices are stored) |
+| create_scAMobj           | Creates the a custom object that this package relies on; Just provide the path to the folder where your dge files (gene expression matrices) are stored |
 | merge_scAMobjs           | Merge scAM objects                                                                                                                                      |
 | percentage_set_feature   | Function for adding pct feature set [e.g. percent mito genes]                                                                                           |
 | MetricsPlot              | Function to plot counts, features and prefix_mito                                                                                                       |
