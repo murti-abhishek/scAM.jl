@@ -32,7 +32,7 @@ Plots = "1.0"
 StatsPlots = "0.15"
 UMAP = "0.1"
 VegaLite = "2.0"
-XLSX = "0.8"
+XLSX = "0.8, 0.10"
 julia = "1.8"
 
 [extras]
