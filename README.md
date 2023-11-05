@@ -18,7 +18,7 @@ If you're familiar with the Seurat (R) and Scanpy (Python), this package has sim
 | modify_scAMobj           | Modify the object after QC                                                                                                                              |
 | Normalize                | Normalize the raw counts                                                                                                                                |
 | Scale                    | Scale the counts                                                                                                                                        |
-| Calulate_UMAP_reduction  | Calulate_UMAP_reduction                                                                                                                                 |
+| Calculate_UMAP_reduction | Calulate_UMAP_reduction                                                                                                                                 |
 | Cluster                  | Run the clustering algorithm                                                                                                                            |
 | plot_UMAP                | Plot the UMAP with the clusters                                                                                                                         |
 | FeaturePlot              | Feature plot specific genes                                                                                                                             |
