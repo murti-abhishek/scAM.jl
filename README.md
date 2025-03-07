@@ -26,3 +26,5 @@ If you're familiar with the Seurat (R) and Scanpy (Python), this package has sim
 | FindDGE                  | Find the differentially expressed genes for a specific cluster                                                                                          |
 | plot_proportions         | Plot proportions by any two metadata identity                                                                                                           |
 | ViolinPlot               | Make violin plots of specific genes by any metadata identity                                                                                            |
+
+I haven't updated this in a while but I'm planning to improve the functionality of this package.
